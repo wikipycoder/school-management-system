@@ -1,4 +1,5 @@
 from django.shortcuts import render,redirect,reverse
+from django.http import HttpResponse
 from . import forms,models
 from django.db.models import Sum
 from django.contrib.auth.models import Group
@@ -625,8 +626,7 @@ def student_attendance_view(request):
 
 
 
-
-# for aboutus and contact ussssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss (by sumit)
+#for contact us
 def aboutus_view(request):
     return render(request,'school/aboutus.html')
 
@@ -638,6 +638,14 @@ def contactus_view(request):
             email = sub.cleaned_data['Email']
             name=sub.cleaned_data['Name']
             message = sub.cleaned_data['Message']
-            send_mail(str(name)+' || '+str(email),message,settings.EMAIL_HOST_USER, settings.EMAIL_RECEIVING_USER, fail_silently = False)
+            try:
+                send_mail(str(name)+' || '+str(email),message,settings.EMAIL_HOST_USER, settings.EMAIL_RECEIVING_USER, fail_silently = False)
+            except Exception: 
+                context = {
+                    "status_code": "HTTP404",
+                    "error_message": "RESOURCE NOT FOUND"
+                }
+                return render(request, "school/error.html", context)
+
             return render(request, 'school/contactussuccess.html')
     return render(request, 'school/contactus.html', {'form':sub})

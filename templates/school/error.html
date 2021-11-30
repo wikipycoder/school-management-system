@@ -1,0 +1,16 @@
+{% extends 'school/homebase.html' %}
+
+
+{% block content %}
+{% include "school/navbar.html" %}
+<br>
+<br>
+<br>
+<br>
+
+<div class="text-center">
+    <h1 class="display-4">{{ status_code }}</h1>
+    <h1>{{ error_message }}</h1>
+</div>
+
+{% endblock %}

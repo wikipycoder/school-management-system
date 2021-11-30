@@ -61,6 +61,7 @@
       float: right;
     }
   </style>
+  <title>Student Dashboard Cards</title>
 </head>
 
 <body>
@@ -72,7 +73,7 @@
           <div class="card-block">
             <h6 class="m-b-20">Name</h6>
             <h2 class="text-right"><i class="fas fa-user-tie f-left"></i></h2>
-            <p><span style="font-size: 20px;">{{request.user.first_name}}</span></p>
+            <p><span style="font-size: 20px;">{{request.user.first_name}} {{request.user.last_name}}</span></p>
           </div>
         </div>
       </div>
@@ -80,7 +81,7 @@
       <div class="col-md-4 col-xl-3">
         <div class="card bg-c-green order-card">
           <div class="card-block">
-            <h6 class="m-b-20">Mobile</h6>
+            <h6 class="m-b-20">Mobile Number</h6>
             <h2 class="text-right"><i class="fas fa-mobile-alt f-left"></i></h2>
             <p><span style="font-size: 20px;">{{mobile}}</span></p>
 
@@ -91,7 +92,7 @@
       <div class="col-md-4 col-xl-3">
         <div class="card bg-c-yellow order-card">
           <div class="card-block">
-            <h6 class="m-b-20">Roll</h6>
+            <h6 class="m-b-20">Roll Number</h6>
             <h2 class="text-right"><i class="fas fa-list-ol f-left"></i></h2>
             <p><span style="font-size: 20px;">{{roll}}</span></p>
           </div>
